@@ -8,9 +8,6 @@
     "start": "electron-forge start",
     "watch:css": "npx tailwindcss -i ./src/index.css -o ./src/dist/index.css --watch",
     "build:css": "npx tailwindcss -i ./src/index.css -o ./src/dist/index.css",
-    "build:win": "npx electron-packager --overwrite ./ --platform=win32 --arch=x64 --out=dist --asar --icon=src/images/icon.ico",
-    "build:mac-arm": "npx electron-packager --overwrite ./ --platform=darwin --arch=arm64 --out=dist --asar --icon=src/images/icon.ico",
-    "build:mac-x64": "npx electron-packager --overwrite ./ --platform=darwin --arch=x64 --out=dist --asar --icon=src/images/icon.ico",
     "build": "electron-builder",
     "lint": "echo \"No linting configured\""
   },
