@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,body,main {
+  overflow: hidden;
+  height: 100%;
+  @apply bg-gray-900
+}
+* {
+  font-family: sans-serif;
+}
+.dis {
+  @apply pointer-events-none opacity-30;
+}

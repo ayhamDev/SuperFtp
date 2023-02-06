@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Super FTP</title>
+    <link rel="stylesheet" href="./dist/index.css" />
+  </head>
+  <body class="text-gray-300 select-none">
+    <main>
+      <!-- toolbar -->
+      <div class="flex justify-between h-10 w-full z-50">
+        <div class="drag_holder w-full flex gap-2 items-center pl-4 text-sm" style=" -webkit-app-region: drag;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 text-gray-400" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 12.5a1 1 0 0 0-1-1h-5a1 1 0 0 0 0 2h5a1 1 0 0 0 1-1Zm5 5a2 2 0 0 0-1.18.39l-1.75-.8l1.91-.88a2 2 0 0 0 1 .29a2 2 0 1 0-2-2l-1.89.87A2 2 0 1 0 13.5 19a1.88 1.88 0 0 0 .92-.24l2.1 1a2 2 0 1 0 2-2.23Zm-8 2h-5a1 1 0 0 1-1-1v-14a1 1 0 0 1 1-1h5v3a3 3 0 0 0 3 3h3a1 1 0 0 0 2 0V8.44a1.31 1.31 0 0 0-.06-.27v-.09a1.07 1.07 0 0 0-.19-.28l-6-6a1.07 1.07 0 0 0-.28-.19a.29.29 0 0 0-.1 0a1.1 1.1 0 0 0-.26-.06H5.5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h5a1 1 0 0 0 0-2Zm2-14.59l2.59 2.59H13.5a1 1 0 0 1-1-1Zm-5 10.59a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm0-6h1a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2Z"/></svg>
+          <span><span class="text-indigo-300 font-medium">Super</span>FTP</span>
+        </div>  
+        <div class="select-none flex items-center justify-between">
+          <div class="minimize_btn px-4 h-full grid place-items-center active:bg-gray-700 hover:bg-gray-800 duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-gray-200" viewBox="0 0 12 12"><rect width="8" height="1.5" x="2" y="5.25"  rx=".75"/></svg>          </div>
+          <div class="close_btn px-4 h-full grid place-items-center active:bg-red-600 hover:bg-red-700 duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 fill-gray-200 stroke-gray-200" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12L7 7m5 5l5 5m-5-5l5-5m-5 5l-5 5"/></svg>
+          </div>
+        </div>
+      </div>
+      <!-- Remove The Padding if there is any problem :) -->
+      <section class="Main_Content pt-4">
+        <div class="px-4">
+          <h1 class="text-lg text-light-blue-500 font-semibold">Server</h1>
+        </div>
+        <div class="w-full px-4 py-3 flex justify-between items-center" 
+        >
+          <div>
+            <h1 class="text-base">Status</h1>
+            <h2 class="text-xs text-yellow-500"><span class="animate-pulse">🔴</span>Running</h2>
+          </div>
+          <div>
+            <button
+            class="refresh_btn middle none center mr-4 rounded-lg bg-blue-500 py-2 px-2 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            data-ripple-light="true"
+          >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 fill-white" viewBox="0 0 24 24"><path d="M12 20q-3.35 0-5.675-2.325Q4 15.35 4 12q0-3.35 2.325-5.675Q8.65 4 12 4q1.725 0 3.3.713q1.575.712 2.7 2.037V5q0-.425.288-.713Q18.575 4 19 4t.712.287Q20 4.575 20 5v5q0 .425-.288.712Q19.425 11 19 11h-5q-.425 0-.712-.288Q13 10.425 13 10t.288-.713Q13.575 9 14 9h3.2q-.8-1.4-2.187-2.2Q13.625 6 12 6Q9.5 6 7.75 7.75T6 12q0 2.5 1.75 4.25T12 18q1.725 0 3.188-.913q1.462-.912 2.187-2.437q.125-.275.413-.462q.287-.188.587-.188q.575 0 .863.4q.287.4.062.9q-.95 2.125-2.925 3.412Q14.4 20 12 20Z"/></svg>
+          </button>
+          </div>
+        </div>
+        <div class="w-full px-4 py-3 flex justify-between items-center" 
+        >
+          <div>
+            <h1 class="text-base">URL</h1>
+            <div class="ip cursor-pointer duration-200 hover:bg-gray-800">
+              <h2 class="ip_text text-xs text-gray-500 tracking-wide">ftp://192.168.1.197:21</h2>
+            </div>
+          </div>
+          <div>
+ 
+          </div>
+        </div>
+        <div class="w-full h-[1px] bg-gray-800 my-4"></div>
+        <div class="px-4">
+          <h1 class="text-base text-light-blue-500 font-semibold">Configuration</h1>
+        </div>
+        <div class="w-full px-4 py-3 flex justify-between items-center" 
+        >
+          <div>
+            <h1 class="text-base">Anonymous Login</h1>
+          </div>
+          <div >
+            <div class="flex items-center">
+              <div class="relative inline-block h-4 w-8 cursor-pointer rounded-full">
+                <input
+                  id="switch-2"
+                  type="checkbox"
+                  class="peer absolute h-4 w-8 cursor-pointer appearance-none rounded-full bg-blue-gray-100 transition-colors duration-300 checked:bg-blue-500 peer-checked:border-blue-500 peer-checked:before:bg-blue-500"
+                />
+                <label
+                  for="switch-2"
+                  class="before:content[''] absolute top-2/4 -left-1 h-5 w-5 -translate-y-2/4 cursor-pointer rounded-full border border-blue-gray-100 bg-white shadow-md transition-all duration-300 before:absolute before:top-2/4 before:left-2/4 before:block before:h-10 before:w-10 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity hover:before:opacity-10 peer-checked:translate-x-full peer-checked:border-blue-500 peer-checked:before:bg-blue-500"
+                >
+                  <div
+                    class="top-2/4 left-2/4 inline-block -translate-x-2/4 -translate-y-2/4 rounded-full p-5"
+                    ></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 mt-2 auth duration-200">
+          <div class="relative h-10 w-full">
+            <input
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-400 border-t-transparent bg-transparent px-3 py-3.5 font-sans text-sm font-normal text-blue-gray-400 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-light-blue-300 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-blue-400 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-light-blue-400 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-light-blue-400 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+              Username
+            </label>
+          </div>
+          <div class="relative h-10 w-full mt-4">
+            <input
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-400 border-t-transparent bg-transparent px-3 py-3.5 font-sans text-sm font-normal text-blue-gray-400 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-light-blue-300 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-blue-400 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-light-blue-400 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-light-blue-400 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+              Password
+            </label>
+          </div>
+        </div>
+        <div class="px-4 mt-2">
+          <div class="relative h-10 w-full mt-4">
+            <input
+              class="port_input peer h-full w-full rounded-[7px] border border-blue-gray-400 border-t-transparent bg-transparent px-3 py-3.5 font-sans text-sm font-normal text-blue-gray-400 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-light-blue-300 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+              value="21"
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-blue-400 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-light-blue-400 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-light-blue-400 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+              Port
+            </label>
+          </div>
+        </div>
+        <div class="dir_path w-full px-4 py-3 flex justify-between items-center mt-4 hover:bg-gray-800 cursor-pointer duration-300" 
+        >
+          <div>
+            <h1 class="text-base">Root Folder</h1>
+            <h2 class="text-xs text-gray-500 tracking-wide select-text">C:\Users\Ayham2\Desktop\Projects\SuperFtp\src\index.html</h2>
+          </div>
+          <div>
+ 
+          </div>
+        </div>
+      </section>
+        <h6 style="font-size: 8px;" class="text-gray-600 absolute bottom-2 left-2">Developed By Ayham</h6>
+    </main>
+
+  </body>
+</html>
