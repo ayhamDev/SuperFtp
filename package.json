@@ -2,7 +2,7 @@
   "name": "superftp",
   "productName": "superftp",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "ftp server application.",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
@@ -11,23 +11,27 @@
     "build:win": "npx electron-packager --overwrite ./ --platform=win32 --arch=x64 --out=dist --asar --icon=src/images/icon.ico",
     "build:mac-arm": "npx electron-packager --overwrite ./ --platform=darwin --arch=arm64 --out=dist --asar --icon=src/images/icon.ico",
     "build:mac-x64": "npx electron-packager --overwrite ./ --platform=darwin --arch=x64 --out=dist --asar --icon=src/images/icon.ico",
+    "build": "electron-builder",
     "lint": "echo \"No linting configured\""
   },
   "build": {
     "appId": "com.ayham.superftp",
-    "icon": "./src/dist/icon.png",
     "win": {
       "target": [
+        "nsis",
         "portable"
-      ]
+      ],
+      "icon": "src/images/icon.ico"
     },
-    "portable": {
-      "artifactName": "superftp.exe"
-    },
-    "directories": {
-      "output": "./output",
-      "app": "./",
-      "buildResources": "./buildResources"
+    "nsis": {
+      "oneClick": true,
+      "installerIcon": "src/images/icon-setup.ico",
+      "uninstallerIcon": "src/images/icon-setup.ico",
+      "uninstallDisplayName": "superftp-uninstaller",
+      "license": "license.md",
+      "createDesktopShortcut": true,
+      "displayLanguageSelector": true,
+      "allowToChangeInstallationDirectory": false
     }
   },
   "keywords": [],

@@ -13,6 +13,9 @@ const ip = require("ip");
 let app_dir = process.cwd();
 let app_auth = false;
 let app_port = 21;
+function isDev() {
+  return process.mainModule.filename.indexOf("app.asar") === -1;
+}
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
@@ -32,12 +35,14 @@ const createWindow = () => {
     show: false,
     center: true,
     frame: false,
-    icon: path.join(__dirname, "dist/icon.png"),
+    icon: path.join(__dirname, "images/icon.png"),
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      devTools: isDev() ? true : false,
     },
   });
 
+  console.log(isDev());
   mainWindow.menuBarVisible = false;
   // and load the index.html of the app.
   mainWindow.moveTop();
@@ -96,7 +101,7 @@ const createWindow = () => {
   });
 
   let tray = new Tray(
-    nativeImage.createFromPath(path.join(__dirname, "dist/icon.png"))
+    nativeImage.createFromPath(path.join(__dirname, "images/icon.png"))
   );
 
   const contextMenu = Menu.buildFromTemplate([
