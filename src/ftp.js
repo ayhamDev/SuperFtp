@@ -1,3 +1,4 @@
+const { Notification } = require("electron");
 var ftpd = require("ftpd");
 const ip = require("ip");
 var options = {
@@ -30,7 +31,6 @@ const ftp = {
 
     this.server.on("client:connected", function (connection) {
       var username = null;
-      console.log("client connected: " + connection.socket.remoteAddress);
       connection.on("command:user", function (user, success, failure) {
         if (auth.any) {
           username = user;
@@ -42,6 +42,7 @@ const ftp = {
             success();
           } else {
             failure();
+            NotificationFail(connection.socket.remoteAddress);
           }
         }
       });
@@ -49,11 +50,14 @@ const ftp = {
       connection.on("command:pass", function (pass, success, failure) {
         if (auth.any) {
           success(username);
+          NotificationSuccess(connection.socket.remoteAddress);
         } else {
           if (pass == auth.password) {
             success(username);
+            NotificationSuccess(connection.socket.remoteAddress);
           } else {
             failure();
+            NotificationFail(connection.socket.remoteAddress);
           }
         }
       });
@@ -66,5 +70,25 @@ const ftp = {
     this.server.close();
   },
 };
+function NotificationSuccess(address) {
+  const notification = new Notification({
+    icon: "src/images/icon.png",
+    title: "New Connection",
+    body: `${address.split(":")[3]} Connected To The Ftp Server.`,
+    silent: false,
+  });
+  return notification.show();
+}
 
+function NotificationFail(address) {
+  const notification = new Notification({
+    icon: "src/images/icon.png",
+    title: "Connection Failed",
+    body: `${
+      address.split(":")[3]
+    } Connection Faild Due To incorrect Login Info.`,
+    silent: false,
+  });
+  return notification.show();
+}
 module.exports = ftp;

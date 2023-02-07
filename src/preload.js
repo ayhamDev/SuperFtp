@@ -54,6 +54,12 @@ window.addEventListener("DOMContentLoaded", () => {
     navigator.clipboard.writeText(
       document.querySelector(".ip_text").textContent
     );
+    document.querySelector(".ip_copy").classList.remove("opacity-0");
+    document.querySelector(".ip_copy").classList.add("opacity-100");
+    setTimeout(() => {
+      document.querySelector(".ip_copy").classList.remove("opacity-100");
+      document.querySelector(".ip_copy").classList.add("opacity-0");
+    }, 3000);
   });
 
   dir_path.querySelector("h2").innerHTML = app_dir;

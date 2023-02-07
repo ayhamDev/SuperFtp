@@ -5,6 +5,7 @@ const {
   ipcMain,
   Tray,
   nativeImage,
+  globalShortcut,
 } = require("electron");
 const path = require("path");
 const { dialog } = require("electron");
@@ -104,17 +105,15 @@ const createWindow = () => {
     nativeImage.createFromPath(path.join(__dirname, "images/icon.png"))
   );
 
-  const contextMenu = Menu.buildFromTemplate([
-    {
-      label: "exist",
-      click: () => {
-        mainWindow.close();
-      },
-    },
-  ]);
-
   tray.on("click", () => {
     mainWindow.show();
+  });
+  globalShortcut.register("F5", () => {
+    if (mainWindow.isFocused()) {
+      console.log("refresh");
+      app.exit();
+      app.relaunch();
+    }
   });
 };
 
@@ -122,7 +121,6 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on("ready", createWindow);
-
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
